@@ -1,0 +1,42 @@
+{% extends "default.html" %}
+{% load static %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+<header class="header">
+  <h1 class="headline">classcollabs <br> <small>Where classmates go to get help</small></h1>
+  <p class="topleft"><a class="homecolor" href="/">Home</a></p>
+  <p class="topright"><a class="logoutcolor" type="submit">Logout</a></p>
+</header><br>
+
+<div class="row">
+  <div class="medium-6 medium-centered large-4 large-centered columns">
+    <form>
+      <!-- change log-in-form -->
+      <div class="row column log-in-form">
+        <h4 class="text-center">Join a class</h4>
+        <label>
+          <input type="text" placeholder="Search for your class here">
+        </label>
+        <p style="text-align: center;"><a type="submit" class="button">Join class</a></p>
+        <!-- need to determine how I am going to implement this -->
+        <p><a type="submit" class="button expanded">Send a request to add your class</a></p><br>
+      </div>
+    </form>
+  </div>
+</div>
+
+<hr>
+<!--
+<script>
+function listUpdate() {
+    $("#comments_list").load("/ #comments");
+}
+setInterval(listUpdate, 5000);
+</script>
+-->
+
+{% endblock %}

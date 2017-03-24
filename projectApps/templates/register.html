@@ -1,0 +1,43 @@
+{% extends "default.html" %}
+{% load static %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+<header class="header">
+  <h1 class="headline">classcollabs <br> <small>Where classmates go to get help</small></h1>
+  <p class="topleft"><a class="homecolor" href="/">Home</a></p>
+  <p class="topright"><a class="logoutcolor" type="submit">Logout</a></p>
+</header><br>
+
+
+<div class="row">
+  <div class="medium-6 medium-centered large-4 large-centered columns">
+    <form>
+      <!-- change log-in-form ??? -->
+      <div class="row column log-in-form">
+        <h4 class="text-center">Create your account</h4>
+        <label>Username
+          <input type="text" placeholder="Username">
+        </label>
+        <label>Email
+          <input type="text" placeholder="Email">
+        </label>
+        <label>Password
+          <input type="text" placeholder="Password">
+        </label>
+        <input id="show-password" type="checkbox"><label for="show-password">Show password</label>
+        <p><a type="submit" class="button expanded">Sign up</a></p><br>
+      </div>
+    </form>
+  </div>
+</div>
+
+<hr>
+<!-- <form method="post" action="{% url 'register' %}">
+</form> -->
+
+
+{% endblock %}

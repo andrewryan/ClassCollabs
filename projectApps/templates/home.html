@@ -1,0 +1,44 @@
+{% extends "default.html" %}
+{% load static %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+<header class="header">
+  <h1 class="headline">classcollabs <br> <small>Where classmates go to get help</small></h1>
+  <p class="topright"><a class="logoutcolor" type="submit">Logout</a></p>
+</header><br>
+
+<div class="row">
+  <div class="medium-6 medium-centered large-4 large-centered columns">
+    <form>
+      <div class="row column log-in-form">
+        <h4 class="text-center">Log in to your account</h4>
+        <label>Username
+          <input type="text" placeholder="Username">
+        </label>
+        <label>Password
+          <input type="text" placeholder="Password">
+        </label>
+        <input id="show-password" type="checkbox"><label for="show-password">Show password</label>
+        <p><a type="submit" class="button expanded">Log In</a></p><br>
+        <!-- <p class="text-center"><a href="#">Forgot your password?</a></p><br> -->
+        <p class="text-center"><a href="/register/">Not registered? Sign up now!</a></p>
+      </div>
+    </form>
+  </div>
+</div>
+
+<hr>
+<!--
+<script>
+function listUpdate() {
+    $("#comments_list").load("/ #comments");
+}
+setInterval(listUpdate, 5000);
+</script>
+-->
+
+{% endblock %}

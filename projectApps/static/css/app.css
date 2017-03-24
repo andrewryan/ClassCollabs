@@ -1,0 +1,47 @@
+.header {
+  text-align: center;
+  background: #074E68;
+  background-size: cover;
+  position: relative;
+  overflow: visible;
+  padding-top: 1.0rem;
+  padding-bottom: 1.0rem; }
+  .header .headline {
+    color: #ffe;
+}
+h4{
+  font-size: 30px;
+}
+div.topheader{
+  background: #BBE3E9;
+}
+div.classlist{
+  height: 200px;
+  width: 100%;
+  border: 1px solid #CACACA;
+  padding: 1rem;
+}
+div.discboard{
+  height: 275px;
+  width: 100%;
+  border: 1px solid #CACACA;
+  padding: 1rem;
+}
+.topleft{
+  position:absolute;
+  top:25px;
+  left:30px;
+  font-size: 25px;
+ }
+a.homecolor{
+  color: #ffe;
+}
+.topright{
+  position:absolute;
+  top:25px;
+  right:30px;
+  font-size: 25px;
+ }
+a.logoutcolor{
+  color: #ffe;
+}

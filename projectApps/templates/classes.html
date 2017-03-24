@@ -1,0 +1,35 @@
+{% extends "default.html" %}
+{% load static %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+<header class="header">
+  <h1 class="headline">classcollabs <br> <small>Where classmates go to get help</small></h1>
+  <p class="topright"><a class="logoutcolor" type="submit">Logout</a></p>
+</header><br>
+
+<div class="row">
+  <div class="medium-6 large-centered columns">
+    <!-- <form> -->
+      <!-- change log-in-form -->
+      <div class="row column log-in-form">
+        <h4 class="text-center">Welcome back, User!</h4>
+        <div class="classlist">
+
+        </div><br>
+        <h5 class="text-center">Don't see your class?</h5><br>
+        <p><a href="/classSearch/" class="button expanded">Click here to search</a></p>
+      </div>
+    <!-- </form> -->
+  </div>
+</div>
+
+<hr>
+
+<!-- <form method="post" action="{% url 'register' %}">
+</form> -->
+
+{% endblock %}
