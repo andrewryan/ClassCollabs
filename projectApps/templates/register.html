@@ -15,29 +15,26 @@
 
 <div class="row">
   <div class="medium-6 medium-centered large-4 large-centered columns">
-    <form>
-      <!-- change log-in-form ??? -->
+    <form method="post" action="{% url 'register' %}">
+      {% csrf_token %}
       <div class="row column log-in-form">
         <h4 class="text-center">Create your account</h4>
-        <label>Username
-          <input type="text" placeholder="Username">
-        </label>
-        <label>Email
-          <input type="text" placeholder="Email">
-        </label>
-        <label>Password
-          <input type="text" placeholder="Password">
-        </label>
-        <input id="show-password" type="checkbox"><label for="show-password">Show password</label>
-        <p><a type="submit" class="button expanded">Sign up</a></p><br>
+        {{ form.errors }}
+        <label>{{ form.username.label_tag }}
+        </label>{{ form.username }}
+        <label>{{ form.email.label_tag }}
+        </label>{{ form.email }}
+        <label>{{ form.password1.label_tag }}
+        </label>{{ form.password1 }}
+        <label>{{ form.password2.label_tag }}
+        </label>{{ form.password2 }}
+        <!-- <input id="show-passwor" type="checkbox"><label for="show-password">Show password</label> -->
+        <input type="submit" class="button expanded" value="Sign up" ><br>
       </div>
     </form>
   </div>
 </div>
 
 <hr>
-<!-- <form method="post" action="{% url 'register' %}">
-</form> -->
-
 
 {% endblock %}

@@ -51,7 +51,7 @@ def comments(request):
 
 def register(request):
     if request.method == "POST":
-        form = registration_form(request.POST)
+        form = RegistrationForm(request.POST)
         if form.is_valid():
             user = form.save()
             user = authenticate(
@@ -59,10 +59,10 @@ def register(request):
                 password=form.cleaned_data.get('password1'))
             #login call back
             login(request,user)
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('/classSearch/')
 
     else:
-        form = registration_form()
+        form = RegistrationForm()
     context = {
         'title':'Registration',
         'form':form

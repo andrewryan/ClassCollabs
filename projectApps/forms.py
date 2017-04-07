@@ -16,7 +16,7 @@ class LoginForm(AuthenticationForm):
         max_length=30,
         widget=forms.TextInput(attrs={
             'class': 'form-control',
-            'name':'username'
+            'name':'username',
         })
     )
     password=forms.CharField(
@@ -26,7 +26,7 @@ class LoginForm(AuthenticationForm):
     )
 
 
-class registration_form(UserCreationForm):
+class RegistrationForm(UserCreationForm):
     email = forms.EmailField(
         label="Email",
         required=True
@@ -37,7 +37,7 @@ class registration_form(UserCreationForm):
         fields = ("username", "email", "password1", "password2")
 
     def save(self, commit=True):
-        user=super(registration_form,self).save(commit=False)
+        user=super(RegistrationForm,self).save(commit=False)
         user.email=self.cleaned_data["email"]
         if commit:
             user.save()
