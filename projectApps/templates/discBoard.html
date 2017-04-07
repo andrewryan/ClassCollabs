@@ -20,6 +20,18 @@
         <h4 class="text-center">Class Discussion Board</h4>
         <div class="discboard">
 
+            <!-- trying to get the search for users to work and display a list
+            of users for testing right now -->
+          <form action="" method="GET">
+            <div style="border-style:inset" id="results_list">
+              <ul id="results"><font color="black">
+              {% for element in result %}
+                <li>{{ element.result }}</li>
+              {% endfor %}
+              </ul>
+            </div>
+          </form>
+
         </div><br>
 
         <div class="row">

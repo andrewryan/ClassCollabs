@@ -48,6 +48,21 @@ def comments(request):
         return HttpResponse("POST successful")
     return HttpResponse("404")
 
+    
+
+def results(request):
+    if request.method == 'GET':
+        results = User.objects.all()
+        result = {}
+        result['results'] = []
+        for result in results:
+            result['results'] += [{
+                'id': result.id,
+                'result': result.result
+            }]
+        return JsonResponse(result)
+
+
 
 def register(request):
     if request.method == "POST":

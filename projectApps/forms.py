@@ -9,6 +9,17 @@ class CommentForm(forms.Form):
             'placeholder': 'enter your comment'
             }))
 
+# class ResultForm(forms.Form):
+    # result = username.objects.all()
+    # username = forms.CharField(
+    #     label="Username",
+    #     max_length=30,
+    #     widget=forms.TextInput(attrs={
+    #         'class': 'form-control',
+    #         'name':'username',
+    #     })
+    # )
+
 
 class LoginForm(AuthenticationForm):
     username=forms.CharField(
