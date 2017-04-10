@@ -27,7 +27,7 @@ def index(request):
         'form':form,
         'submit':submit
         }
-    return render(request,'home.html',context)
+    return render(request,'login.html',context)
 
 
 def login_view(request):
@@ -36,9 +36,10 @@ def login_view(request):
     user = authenticate(username=username, password=password)
     if user is not None:
         login(request, user)
-        return HttpResponseRedirect('/classes/')
+        HttpResponseRedirect('/classes/')
     else:
         return HttpResponse("Invalid login credentials")
+        
 
 def logout_view(request):
     logout(request)
