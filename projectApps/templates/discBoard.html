@@ -9,7 +9,11 @@
 <header class="header">
   <h1 class="headline">classcollabs <br> <small>Where classmates go to get help</small></h1>
   <p class="topleft"><a class="homecolor" href="/">Home</a></p>
-  <p class="topright"><a class="logoutcolor" type="submit">Logout</a></p>
+  {% if user.is_authenticated %}
+    <p class="topright"><a class="logoutcolor" type="submit">Logout</a></p>
+  {% else %}
+    <p><a href="/home/">Log In</a></p>
+  {% endif %}
 </header><br>
 
 <div class="row">
@@ -22,7 +26,7 @@
 
             <!-- trying to get the search for users to work and display a list
             of users for testing right now -->
-          <form action="" method="GET">
+          <!-- <form action="" method="GET">
             <div style="border-style:inset" id="results_list">
               <ul id="results"><font color="black">
               {% for element in result %}
@@ -30,7 +34,7 @@
               {% endfor %}
               </ul>
             </div>
-          </form>
+          </form> -->
 
         </div><br>
 

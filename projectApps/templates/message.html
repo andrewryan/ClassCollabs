@@ -9,7 +9,11 @@
 <header class="header">
   <h1 class="headline">classcollabs <br> <small>Where classmates go to get help</small></h1>
   <p class="topleft"><a class="homecolor" href="/">Home</a></p>
-  <p class="topright"><a class="logoutcolor" type="submit">Logout</a></p>
+  {% if user.is_authenticated %}
+    <p class="topright"><a class="logoutcolor" type="submit">Logout</a></p>
+  {% else %}
+    <p><a href="/home/">Log In</a></p>
+  {% endif %}
 </header><br>
 
 <div class="row">
@@ -20,7 +24,8 @@
         <h4 class="text-center">Messaging Center</h4>
         <div class="discboard">
           <p>If user is authenticated the home link takes them to the class listings page,<br>
-            and only show logout if user is authenticated</p>
+            and only show logout if user is authenticated, display classes just like
+            the comments and allow users to pick which one to join</p>
         </div><br>
 
         <div class="row">

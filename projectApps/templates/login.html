@@ -20,18 +20,18 @@
       <div class="row column log-in-form">
         <h4 class="text-center">Log in to your account</h4>
         {{ form.errors }}
-        <!-- <label>{{ form.username.label_tag }}</label>
+        <label>{{ form.username.label_tag }}</label>
           {{ form.username }}
 
         <label>{{ form.password.label_tag }}</label>
-          {{ form.password }} -->
+          {{ form.password }}
 
-        <label>Username
+        <!-- <label>Username
           <input type="text" placeholder="Username">
         </label>
         <label>Password
           <input type="text" placeholder="Password">
-        </label>
+        </label> -->
         <input type="submit" class="button expanded" value="Login"><br>
         <p class="text-center"><a href="/register/">Not registered? Sign up now!</a></p>
       </div>
@@ -42,21 +42,3 @@
 <hr>
 
 {% endblock %}
-
-
-
-<!-- <div class="row">
-  <div class="medium-6 medium-centered large-4 large-centered columns">
-    <form method="POST" action="{% url 'login' %}">
-      {% csrf_token %}
-      <div class="row column log-in-form">
-        <h4 class="text-center">Log in to your account</h4>
-        {{ form.errors }}
-        <label>{{ form.username.label_tag }}</label>
-          {{ form.username }}
-
-          <label>{{ form.password.label_tag }}</label>
-            {{ form.password }}
-
-        <input id="show-password" type="checkbox"><label for="show-password">Show password</label>
-        <input type="submit" class="button expanded" value="Log In"><br> -->

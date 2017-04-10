@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'discBoard',views.discBoard, name='discBoard'),
     url(r'message',views.message, name='message'),
     url(r'results',views.results, name='results'),
+    url(r'courses',views.courses, name='courses'),
 ]

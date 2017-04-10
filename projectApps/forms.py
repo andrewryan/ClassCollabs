@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 
 class CommentForm(forms.Form):
     comment = forms.CharField(
@@ -9,16 +9,14 @@ class CommentForm(forms.Form):
             'placeholder': 'enter your comment'
             }))
 
-# class ResultForm(forms.Form):
-    # result = username.objects.all()
-    # username = forms.CharField(
-    #     label="Username",
-    #     max_length=30,
-    #     widget=forms.TextInput(attrs={
-    #         'class': 'form-control',
-    #         'name':'username',
-    #     })
-    # )
+class ResultForm(forms.Form):
+    # result = User.objects.all()
+    user = forms.CharField(
+        max_length=30,
+        widget=forms.TextInput(attrs={
+            'name':'username',
+        })
+    )
 
 
 class LoginForm(AuthenticationForm):

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 from .models import *
@@ -29,6 +29,23 @@ def index(request):
         }
     return render(request,'home.html',context)
 
+
+def login_view(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        login(request, user)
+        return HttpResponseRedirect('/classes/')
+    else:
+        return HttpResponse("Invalid login credentials")
+
+def logout_view(request):
+    logout(request)
+    return HttpResponse("You have been successfully logged out")
+
+
+
 @csrf_exempt
 def comments(request):
     if request.method == 'GET':
@@ -48,7 +65,7 @@ def comments(request):
         return HttpResponse("POST successful")
     return HttpResponse("404")
 
-    
+
 
 def results(request):
     if request.method == 'GET':
@@ -61,6 +78,19 @@ def results(request):
                 'result': result.result
             }]
         return JsonResponse(result)
+
+
+def courses(request):
+    if request.method == 'GET':
+        courses = course.objects.all()
+        course = {}
+        course['courses'] = []
+        for course in courses:
+            course['courses'] += [{
+                'id': course.id,
+                'result': course.course
+            }]
+        return JsonResponse(course)
 
 
 
