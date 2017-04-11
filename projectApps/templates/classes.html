@@ -18,14 +18,13 @@
 <div class="row">
   <div class="medium-6 large-centered columns">
     <!-- <form> -->
-      <!-- change log-in-form -->
       <div class="row column log-in-form">
         <h4 class="text-center">Welcome back, User!</h4>
         <div class="classlist">
 
           <form action="" method="GET">
             <div id="course_list">
-              <ul id="courses"><font color="black">
+              <ul id="courses">
               {% for element in content %}
                 <li>{{ element.course }}</li>
               {% endfor %}
@@ -42,8 +41,5 @@
 </div>
 
 <hr>
-
-<!-- <form method="post" action="{% url 'register' %}">
-</form> -->
 
 {% endblock %}

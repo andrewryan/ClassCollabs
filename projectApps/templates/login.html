@@ -19,18 +19,12 @@
       <div class="row column log-in-form">
         <h4 class="text-center">Log in to your account</h4>
         {{ form.errors }}
+
         <label>{{ form.username.label_tag }}</label>
           {{ form.username }}
-
         <label>{{ form.password.label_tag }}</label>
           {{ form.password }}
 
-        <!-- <label>Username
-          <input type="text" placeholder="Username">
-        </label>
-        <label>Password
-          <input type="text" placeholder="Password">
-        </label> -->
         <input type="submit" class="button expanded" value="Login"><br>
         <p class="text-center"><a href="/register/">Not registered? Sign up now!</a></p>
       </div>

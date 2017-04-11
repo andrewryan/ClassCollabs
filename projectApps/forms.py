@@ -10,14 +10,12 @@ class CommentForm(forms.Form):
             }))
 
 class ResultForm(forms.Form):
-    # result = User.objects.all()
     user = forms.CharField(
         max_length=30,
         widget=forms.TextInput(attrs={
             'name':'username',
         })
     )
-
 
 class LoginForm(AuthenticationForm):
     username=forms.CharField(
@@ -33,7 +31,6 @@ class LoginForm(AuthenticationForm):
         max_length=32,
         widget=forms.PasswordInput()
     )
-
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(
