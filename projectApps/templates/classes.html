@@ -17,7 +17,7 @@
 
 <div class="row">
   <div class="medium-6 large-centered columns">
-    <!-- <form> -->
+    <form>{% csrf_token %}
       <div class="row column log-in-form">
         <h4 class="text-center">Welcome back, User!</h4>
         <div class="classlist">
@@ -36,7 +36,7 @@
         <h5 class="text-center">Don't see your class?</h5><br>
         <p><a href="/classSearch/" class="button expanded">Click here to search</a></p>
       </div>
-    <!-- </form> -->
+    </form>
   </div>
 </div>
 

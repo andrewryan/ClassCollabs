@@ -76,30 +76,39 @@ def register(request):
     }
     return render(request, 'register.html', context)
 
-
+# @login_required
 def classes(request):
     context = {
         'title':'Class List',
     }
     return render(request, 'classes.html', context)
 
-
+# @login_required
 def classSearch(request):
     context = {
         'title':'Class Search',
     }
     return render(request, 'classSearch.html', context)
 
-
+# @login_required
 def discBoard(request):
     context = {
         'title':'Discussion Board',
     }
     return render(request, 'discBoard.html', context)
 
-
+# @login_required(login_url='/accounts/message/')
 def message(request):
     context = {
         'title':'Messaging Center',
     }
     return render(request, 'message.html', context)
+
+
+# all @login_required redirects go to the 'classes' page, because in
+# settings.py LOGIN_REDIRECT_URL
+# once you log in that will be the first page you go to, how do I
+# make it so they all work the way they should
+#
+# how to display all classes available and how to allow them
+# to join a class
