@@ -8,26 +8,26 @@ from .models import *
 from .forms import *
 
 def index(request):
-    if request.method == 'POST':
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            submit = form.cleaned_data['comment']
-            newComment = Comment(comment=submit)
-            newComment.save()
-            form = CommentForm()
-        else:
-            submit = ""
-    else:
-        form = CommentForm()
-        submit = ""
-    comments = Comment.objects.all()
+    # if request.method == 'POST':
+    #     form = CommentForm(request.POST)
+    #     if form.is_valid():
+    #         submit = form.cleaned_data['comment']
+    #         newComment = Comment(comment=submit)
+    #         newComment.save()
+    #         form = CommentForm()
+    #     else:
+    #         submit = ""
+    # else:
+    #     form = CommentForm()
+    #     submit = ""
+    # comments = Comment.objects.all()
     context = {
         'title':"Home",
-        'content': comments,
-        'form':form,
-        'submit':submit
+        # 'content': comments,
+        # 'form':form,
+        # 'submit':submit
         }
-    return render(request,'login.html',context)
+    return render(request,'home.html',context)
 
 
 def login_view(request):
@@ -39,7 +39,7 @@ def login_view(request):
         HttpResponseRedirect('/classes/')
     else:
         return HttpResponse("Invalid login credentials")
-        
+
 
 def logout_view(request):
     logout(request)

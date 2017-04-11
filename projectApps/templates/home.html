@@ -1,0 +1,28 @@
+{% extends "default.html" %}
+{% load static %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+<header class="header">
+  <h1 class="headline">classcollabs <br> <small>Where classmates go to get help</small></h1>
+  {% if user.is_authenticated %}
+    <p class="topright"><a class="logoutcolor" href="/logout/">Logout</a></p>
+  {% endif %}
+</header><br>
+
+<div class="row">
+  <div class="medium-6 medium-centered large-4 large-centered columns">
+    <div class="row column log-in-form">
+      <h4 class="text-center">Log in to your account</h4><br>
+      <a href="/login/" class="button expanded" value="Login">Login</a><br>
+      <p class="text-center"><a href="/register/">Not registered? Sign up now!</a></p>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+{% endblock %}

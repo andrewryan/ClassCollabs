@@ -9,9 +9,9 @@
 <header class="header">
   <h1 class="headline">classcollabs <br> <small>Where classmates go to get help</small></h1>
   {% if user.is_authenticated %}
-    <p class="topright"><a class="logoutcolor" type="submit">Logout</a></p>
+    <p class="topright"><a class="logoutcolor" href="/logout/">Logout</a></p>
   {% else %}
-    <p><a href="/login/">Log In</a></p>
+    <p class="topright"><a class="logoutcolor" href="/login/">Log In</a></p>
   {% endif %}
 </header><br>
 
