@@ -30,32 +30,6 @@ def logout_view(request):
     return HttpResponse("You have been successfully logged out")
 
 
-def results(request):
-    if request.method == 'GET':
-        results = User.objects.all()
-        result = {}
-        result['results'] = []
-        for result in results:
-            result['results'] += [{
-                'id': result.id,
-                'result': result.result
-            }]
-        return JsonResponse(result)
-
-
-def courses(request):
-    if request.method == 'GET':
-        courses = course.objects.all()
-        course = {}
-        course['courses'] = []
-        for course in courses:
-            course['courses'] += [{
-                'id': course.id,
-                'result': course.course
-            }]
-        return JsonResponse(course)
-
-
 def register(request):
     if request.method == "POST":
         form = RegistrationForm(request.POST)
@@ -64,7 +38,7 @@ def register(request):
             user = authenticate(
                 username=form.cleaned_data.get('username'),
                 password=form.cleaned_data.get('password1'))
-            #login call back
+            #log user in
             login(request,user)
             return HttpResponseRedirect('/classSearch/')
 
@@ -75,40 +49,34 @@ def register(request):
         'form':form
     }
     return render(request, 'register.html', context)
+    
 
-# @login_required
+@login_required
 def classes(request):
+    availClasses = Course.objects.all()
     context = {
+        'class_list':availClasses,
         'title':'Class List',
     }
     return render(request, 'classes.html', context)
 
-# @login_required
+@login_required
 def classSearch(request):
     context = {
         'title':'Class Search',
     }
     return render(request, 'classSearch.html', context)
 
-# @login_required
+@login_required
 def discBoard(request):
     context = {
         'title':'Discussion Board',
     }
     return render(request, 'discBoard.html', context)
 
-# @login_required(login_url='/accounts/message/')
+@login_required
 def message(request):
     context = {
         'title':'Messaging Center',
     }
     return render(request, 'message.html', context)
-
-
-# all @login_required redirects go to the 'classes' page, because in
-# settings.py LOGIN_REDIRECT_URL
-# once you log in that will be the first page you go to, how do I
-# make it so they all work the way they should
-#
-# how to display all classes available and how to allow them
-# to join a class

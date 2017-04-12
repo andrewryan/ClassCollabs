@@ -25,9 +25,9 @@
           <form action="" method="GET">
             <div id="course_list">
               <ul id="courses">
-              {% for element in content %}
-                <li>{{ element.course }}</li>
-              {% endfor %}
+                {% for object in class_list %}
+                  <li>{{ object.course }}</li>
+                {% endfor %}
               </ul>
             </div>
           </form>
