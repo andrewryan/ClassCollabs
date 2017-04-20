@@ -49,7 +49,7 @@ def register(request):
         'form':form
     }
     return render(request, 'register.html', context)
-    
+
 
 @login_required
 def classes(request):
@@ -62,7 +62,9 @@ def classes(request):
 
 @login_required
 def classSearch(request):
+    availClasses = Course.objects.all()
     context = {
+        'class_list':availClasses,
         'title':'Class Search',
     }
     return render(request, 'classSearch.html', context)

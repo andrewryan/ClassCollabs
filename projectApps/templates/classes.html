@@ -18,20 +18,18 @@
 <div class="row">
   <div class="medium-6 large-centered columns">
     <form>{% csrf_token %}
-      <div class="row column log-in-form">
-        <h4 class="text-center">Welcome back, User!</h4>
+      <div class="row column">
+        <h4 class="text-center">Welcome back, {{ user }}!</h4>
         <div class="classlist">
-
           <form action="" method="GET">
             <div id="course_list">
               <ul id="courses">
                 {% for object in class_list %}
-                  <li><a href="/discBoard/">{{ object.course }}</li>
+                  <li><a href="/discBoard/">{{ object.course }}</a></li>
                 {% endfor %}
               </ul>
             </div>
           </form>
-
         </div><br>
         <h5 class="text-center">Don't see your class?</h5><br>
         <p><a href="/classSearch/" class="button expanded">Click here to search</a></p>

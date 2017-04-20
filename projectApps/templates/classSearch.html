@@ -17,13 +17,21 @@
 </header><br>
 
 <div class="row">
-  <div class="medium-6 medium-centered large-4 large-centered columns">
+  <div class="medium-6 large-centered columns">
     <form>{% csrf_token %}
-      <div class="row column log-in-form">
+      <div class="row column">
         <h4 class="text-center">Join a class</h4>
-        <label>
-          <input type="text" placeholder="Search for your class here">
-        </label>
+        <div>
+          <form action="" method="GET">
+            <div id="course_list">
+              <select id="courses">
+                {% for object in class_list %}
+                  <option>{{ object.course }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </form>
+        </div><br>
         <p style="text-align: center;"><a type="submit" class="button">Join class</a></p>
         <p><a type="submit" class="button expanded">Send a request to add your class</a></p><br>
       </div>
@@ -32,6 +40,8 @@
 </div>
 
 <hr>
+
+
 <!--
 <script>
 function listUpdate() {
