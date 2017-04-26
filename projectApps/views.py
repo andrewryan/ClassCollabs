@@ -82,3 +82,10 @@ def message(request):
         'title':'Messaging Center',
     }
     return render(request, 'message.html', context)
+
+@login_required
+def home(request):
+    context = {
+        'title':'Home',
+    }
+    return render(request, 'home.html', context)

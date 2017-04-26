@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'classSearch',views.classSearch, name='classSearch'),
     url(r'discBoard',views.discBoard, name='discBoard'),
     url(r'message',views.message, name='message'),
+    url(r'home',views.home, name='home'),
 ]
