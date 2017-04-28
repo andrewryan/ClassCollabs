@@ -2,20 +2,6 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User, Group
 
-class CommentForm(forms.Form):
-    comment = forms.CharField(
-        max_length=100,
-        widget=forms.TextInput(attrs={
-            'placeholder': 'enter your comment'
-            }))
-
-class ResultForm(forms.Form):
-    user = forms.CharField(
-        max_length=30,
-        widget=forms.TextInput(attrs={
-            'name':'username',
-        })
-    )
 
 class LoginForm(AuthenticationForm):
     username=forms.CharField(

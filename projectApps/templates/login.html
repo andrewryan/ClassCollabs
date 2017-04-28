@@ -14,8 +14,7 @@
 
 <div class="row">
   <div class="medium-6 medium-centered large-4 large-centered columns">
-    <form method="POST" action="">
-      {% csrf_token %}
+    <form method="post" action="">{% csrf_token %}
       <div class="row column log-in-form">
         <h4 class="text-center">Log in to your account</h4>
         {{ form.errors }}
@@ -35,3 +34,6 @@
 <hr>
 
 {% endblock %}
+
+{% block script %}
+{% endblock script %}

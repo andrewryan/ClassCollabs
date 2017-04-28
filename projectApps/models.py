@@ -2,14 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User, Group
 from django.conf import settings
 
-# Create your models here.
-
-
-class Result(models.Model):
-    user = models.ForeignKey(User, null=True, blank=True)
-
-    def __str__(self):
-        return self.user
 
 class Course(models.Model):
     course = models.CharField(max_length=20)
@@ -17,3 +9,7 @@ class Course(models.Model):
 
     def __str__(self):
         return self.course
+
+class LoggedInUser(models.Model):
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL, related_name='logged_in_user')

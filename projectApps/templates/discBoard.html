@@ -17,43 +17,41 @@
 </header><br>
 
 <div class="row">
-  <div class="medium-8 large-centered columns">
-    <form>{% csrf_token %}
-      <div class="row column log-in-form">
-        <h4 class="text-center">Class Discussion Board</h4>
-        <div class="discboard">
-          <p>when user selects a class from the class_list, they will be directed
-            to this page, at the top it will read ''corresponding class'
-            discussion board', this page needs to be dynamic and change for
-            each user and their class</p>
-        </div><br>
-        <div class="row">
-          <div class="large-9 columns">
-            <input type="text" style="width:100%" placeholder="Enter your comment here">
-          </div>
-          <div class="large-3 columns">
-            <a type="submit" class="button" style="width:100%">Post</a>
-          </div>
-          <p class="text-center"><a href="/message/">Click here to send a classmate a message!</a></p>
+  <form>{% csrf_token %}
+    <div class="small-6 large-2 columns">
+      <h5><u> Online classmates </u></h5>
+      <ul>
+        {% for user in users %}
+          <li data-username="{{ user.username }}">
+            {{ user.username }}: {{ user.status }}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="small-6 large-8 columns">
+      <h4 class="text-center">Class Discussion Board</h4>
+      <div class="discboard">
+        <p>
+        </p><br>
+      </div><br>
+      <div class="row">
+        <div class="large-9 columns">
+          <input type="text" style="width:100%" placeholder="Enter your comment here">
         </div>
+        <div class="large-3 columns">
+          <a type="submit" class="button" style="width:100%">Post</a>
+        </div>
+        <p class="text-center"><a href="/message/">Click here to send a classmate a message!</a></p>
       </div>
-    </form>
-  </div>
+    </div>
+    <div class="small-12 large-2 columns"><!-- Empty div to have 2-8-2 grid --></div>
+  </form>
 </div>
 
 <hr>
 
-<!-- using to test if websocket is being connected successfully with a console log -->
-<script>
-  var socket = new WebSocket('ws://' + window.location.host + '/users/');
-
-  socket.onopen = function open() {
-    console.log('WebSockets connection created.');
-  };
-
-  if (socket.readyState == WebSocket.OPEN) {
-    socket.onopen();
-  }
-</script>
-
 {% endblock %}
+
+{% block script %}
+{% endblock script %}
