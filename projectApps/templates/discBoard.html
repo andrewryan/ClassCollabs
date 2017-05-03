@@ -32,19 +32,25 @@
     <div class="small-6 large-8 columns">
       <h4 class="text-center">Class Discussion Board</h4>
       <div class="discboard">
-        <p>
-        </p><br>
+        <pre id="billboard" style="overflow-y: auto; height: 15em;"></pre>
       </div><br>
+
       <div class="row">
-        <div class="large-9 columns">
-          <input type="text" style="width:100%" placeholder="Enter your comment here">
+        <div "form-inline">
+          <div class="large-9 columns">
+            <input type="text" class="form-control" style="width:100%" id="text_message" placeholder="Enter your message here">
+          </div>
+          <div class="large-3 columns">
+            <button class="button" type="button" style="width:100%" id="send_message">Post message</button>
+          </div>
+          <div>
+            <p class="text-center"><a href="/message/">Click here to send a classmate a message!</a></p>
+          </div>
         </div>
-        <div class="large-3 columns">
-          <a type="submit" class="button" style="width:100%">Post</a>
-        </div>
-        <p class="text-center"><a href="/message/">Click here to send a classmate a message!</a></p>
       </div>
+
     </div>
+
     <div class="small-12 large-2 columns"><!-- Empty div to have 2-8-2 grid --></div>
   </form>
 </div>

@@ -17,31 +17,102 @@
 <script src="{% static "js/app.js" %}"></script>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="{% static "js/ws4redis.js" %}" type="text/javascript"></script>
+<!-- This script was implemented following along with a tutorial on RealPython,
+  source: https://realpython.com/blog/python/getting-started-with-django-channels/ -->
+
 <script>
+  // Create a new websocket
   var socket = new WebSocket('ws://' + window.location.host + '/users/');
-
-  // print to the console when the websocket has connected
+  // Print to the console when the websocket has connected for testing
   socket.onopen = function open() {
-    console.log('websockets connection established.');
+    console.log('userLoggedIn websocket connection established');
   };
-
+  // store user as a 'data' attribute to make it easy to find the user in the DOM,
+  // adding an event listener to the websocket to handle the response from the server,
+  // when a respnse is received from the server, parse the JSON object and then update
+  // the users status on the page
   socket.onmessage = function message(event) {
     var data = JSON.parse(event.data);
     var username = encodeURI(data['username']);
     var user = $('li').filter(function () {
       return $(this).data('username') == username;
     });
-
     if (data['is_logged_in']) {
       user.html(username + ': Online');
     }
     else {
       user.html(username + ': ');
-}
+  }
   };
-
   if (socket.readyState == WebSocket.OPEN) {
     socket.onopen();
   }
 </script>
+
+<!-- Testing new chat websocket, probably need to combine into one websocket -->
+<script>
+  // Create a new websocket
+  var chatSocket = new WebSocket('ws://' + window.location.host + '/chat/');
+  // Print to the console when the websocket has connected for testing
+  chatSocket.onopen = function open() {
+    console.log('chatSocket connection established');
+  };
+  var billboard = $('#billboard');
+  $("#text_message").keydown(function(event) {
+    var date = JSON.parse(message.data);
+    // if (event.keyCode === 13) {
+    //   event.preventDefault();
+      chatSocket.onmessage($('#text_message').val());
+    // }
+  });
+  $('#send_message').click(function() {
+    chatSocket.send($('#text_message').val());
+  });
+  // receive a message though the Websocket from the server
+  chatSocket.onmessage = function(message) {
+      var data = JSON.parse(message.data);
+      billboard.append('<br/>' + message);
+  };
+  // function receiveMessage(msg) {
+  //   billboard.append('<br/>' + msg);
+  //   billboard.scrollTop(billboard.scrollTop() + 25);
+  // }
+
+
+  if (chatSocket.readyState == WebSocket.OPEN) {
+    chatSocket.onopen();
+  }
+</script>
+
+
+
+<!-- This script was implemented following along with a tutorial on Django-readthedocs,
+source: Jacob Rief http://django-websocket-redis.readthedocs.io/en/latest/ -->
+<!-- <script type="text/javascript">
+jQuery(document).ready(function($) {
+  // var socket = new WebSocket('ws://' + window.location.host);
+  var ws4redis = WS4Redis({
+		uri: '{{ WEBSOCKET_URI }}127.0.0.1:8000/discBoard',
+		receive_message: receiveMessage,
+		// heartbeat_msg: {{ WS4REDIS_HEARTBEAT }}
+	});
+	var billboard = $('#billboard');
+	// send message though the Websocket to the server
+	$("#text_message").keydown(function(event) {
+		if (event.keyCode === 13) {
+			event.preventDefault();
+			ws4redis.send_message($('#text_message').val());
+		}
+	});
+	$('#send_message').click(function() {
+		ws4redis.send_message($('#text_message').val());
+	});
+	// receive a message though the Websocket from the server
+	function receiveMessage(msg) {
+		billboard.append('<br/>' + msg);
+		billboard.scrollTop(billboard.scrollTop() + 25);
+	}
+});
+</script> -->
 {% endblock %}

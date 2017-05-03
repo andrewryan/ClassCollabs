@@ -10,6 +10,7 @@ class Course(models.Model):
     def __str__(self):
         return self.course
 
+# Model used to keep a record of currently logged in users
 class LoggedInUser(models.Model):
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL, related_name='logged_in_user')
