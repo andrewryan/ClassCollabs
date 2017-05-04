@@ -14,3 +14,6 @@ class Course(models.Model):
 class LoggedInUser(models.Model):
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL, related_name='logged_in_user')
+
+class Message(models.Model):
+    message = models.TextField()

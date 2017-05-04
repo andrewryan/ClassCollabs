@@ -59,25 +59,27 @@
     console.log('chatSocket connection established');
   };
   var billboard = $('#billboard');
+  // send message though the Websocket to the server
   $("#text_message").keydown(function(event) {
-    var date = JSON.parse(message.data);
-    // if (event.keyCode === 13) {
-    //   event.preventDefault();
-      chatSocket.onmessage($('#text_message').val());
-    // }
+    var date = JSON.parse(event.data);
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      chatSocket.send($('#text_message').val());
+    }
   });
   $('#send_message').click(function() {
     chatSocket.send($('#text_message').val());
   });
   // receive a message though the Websocket from the server
   chatSocket.onmessage = function(message) {
-      var data = JSON.parse(message.data);
+      // var data = JSON.parse(message.data);
       billboard.append('<br/>' + message);
+      billboard.scrollTop(billboard.scrollTop() + 25);
   };
   // function receiveMessage(msg) {
   //   billboard.append('<br/>' + msg);
   //   billboard.scrollTop(billboard.scrollTop() + 25);
-  // }
+  // };
 
 
   if (chatSocket.readyState == WebSocket.OPEN) {
