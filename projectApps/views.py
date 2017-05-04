@@ -6,13 +6,6 @@ from django.contrib.auth.decorators import login_required
 from Project import settings
 from django.views.generic.base import TemplateView
 
-# from django.contrib.auth.models import User, Group
-# from django.http import HttpResponse
-# from django.views.generic.base import TemplateView
-# from django.views.decorators.csrf import csrf_exempt
-# from ws4redis.redis_store import RedisMessage
-# from ws4redis.publisher import RedisPublisher
-
 from .models import *
 from .forms import *
 
@@ -107,12 +100,3 @@ def home(request):
         'title':'Home',
     }
     return render(request, 'home.html', context)
-    
-
-# class BroadcastChatView(TemplateView):
-#     template_name = 'discBoard.html'
-#
-#     def get(self, request, *args, **kwargs):
-#         welcome = RedisMessage('Begin chat...')  # create a welcome message to be sent to everybody
-#         RedisPublisher(facility='foobar', broadcast=True).publish_message(welcome)
-#         return super(BroadcastChatView, self).get(request, *args, **kwargs)

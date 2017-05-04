@@ -39,7 +39,7 @@ def ws_message(message):
     #         'message': message
     #     })
     # })
-    
+
     # 'text': json.dumps({
 
     # })
