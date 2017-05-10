@@ -33,16 +33,6 @@ def ws_disconnect(message):
 # Trying to send messages through websockets for chat,
 # 'text' represents the data of the message being sent
 def ws_message(message):
-    # Group('chat').add(message.reply_channel)
-    # Group('chat').send({
-    #     'text': json.dumps({
-    #         'message': message
-    #     })
-    # })
-
-    # 'text': json.dumps({
-
-    # })
     Group("chat").send({
         "text": "[user] %s" % message.content['text'],
     })

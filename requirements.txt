@@ -1,3 +1,4 @@
+appdirs==1.4.0
 asgi-redis==1.0.0
 asgiref==1.0.0
 attrs==16.3.0
@@ -7,8 +8,15 @@ channels==1.0.3
 constantly==15.1.0
 daphne==1.0.3
 Django==1.10.5
+django-messages==0.5.3
+django-websocket-redis==0.5.0
+gevent==1.2.1
+greenlet==0.4.12
+gunicorn==19.7.1
 incremental==16.10.1
 msgpack-python==0.4.8
+packaging==16.8
+pyparsing==2.1.10
 redis==2.10.5
 six==1.10.0
 Twisted==17.1.0

@@ -4,7 +4,6 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib.auth.decorators import login_required
 from Project import settings
-from django.views.generic.base import TemplateView
 
 from .models import *
 from .forms import *
@@ -41,7 +40,7 @@ def register(request):
             user = authenticate(
                 username=form.cleaned_data.get('username'),
                 password=form.cleaned_data.get('password1'))
-            #log user in
+            #log the user in
             login(request,user)
             return HttpResponseRedirect('/classSearch/')
 

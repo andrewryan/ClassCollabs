@@ -135,8 +135,6 @@ WEBSOCKET_URL = '/ws/'
 
 WS4REDIS_EXPIRE = 3600
 
-WS4REDIS_HEARTBEAT = '--heartbeat--'
-
 WS4REDIS_PREFIX = 'demo'
 
 STATIC_ROOT = os.path.join(BASE_DIR,"static")
