@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'projectApps',
     'channels',
     'ws4redis',
+    'gunicorn',
 ]
 
 CHANNEL_LAYERS = {
@@ -136,6 +137,8 @@ WEBSOCKET_URL = '/ws/'
 WS4REDIS_EXPIRE = 3600
 
 WS4REDIS_PREFIX = 'demo'
+
+# SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 
 STATIC_ROOT = os.path.join(BASE_DIR,"static")
 STATICFILES_DIRS = [
