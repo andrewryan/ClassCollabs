@@ -136,7 +136,18 @@ WEBSOCKET_URL = '/ws/'
 
 WS4REDIS_EXPIRE = 3600
 
-WS4REDIS_PREFIX = 'demo'
+WS4REDIS_PREFIX = 'ws'
+
+WS4REDIS_SUBSCRIBER = 'myapp.redis_store.RedisSubscriber'
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.static',
+    'ws4redis.context_processors.default',
+)
+
+SESSION_ENGINE = 'redis_sessions.session'
+SESSION_REDIS_PREFIX = 'session'
 
 # SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 
