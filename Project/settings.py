@@ -46,7 +46,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'asgi_redis.RedisChannelLayer',
         'CONFIG': {
-            'hosts': ["redis://redis-channel-1:6379/0"],
+            'hosts': [('redis', 6379)],
         },
         'ROUTING': 'Project.routing.channel_routing',
     }
