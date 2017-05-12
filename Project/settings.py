@@ -22,7 +22,7 @@ SECRET_KEY = '*zt@377t_1a9zalz_goyiz@&m#287bg#fb5ysb&6lu0)j3_+61'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['54.70.142.254']
 
 LOGIN_REDIRECT_URL="/classes/"
 
@@ -42,11 +42,13 @@ INSTALLED_APPS = [
     'gunicorn',
 ]
 
+redis_host = os.environ.get('REDIS_HOST', 'localhost')
+
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'asgi_redis.RedisChannelLayer',
         'CONFIG': {
-            'hosts': [('localhost', 6379)],
+            'hosts': [(redis_host, 6379)],
         },
         'ROUTING': 'Project.routing.channel_routing',
     }
