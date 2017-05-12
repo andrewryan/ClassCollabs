@@ -22,7 +22,7 @@ SECRET_KEY = '*zt@377t_1a9zalz_goyiz@&m#287bg#fb5ysb&6lu0)j3_+61'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['54.70.142.254']
+ALLOWED_HOSTS = [] #['54.70.142.254']  uncomment out to use with hosted website
 
 LOGIN_REDIRECT_URL="/classes/"
 
